@@ -27,10 +27,12 @@ void initState(){
     (
 
       body: SafeArea(child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
 
           Center(child: 
-          Text("Your Home content here",style: TextStyle(
+          Text("Your Application Starting",style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w900
           ),))

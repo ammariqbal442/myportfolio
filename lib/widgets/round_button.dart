@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class RoundButton extends StatelessWidget {
   final String title; 
   final VoidCallback ontap;
+ final  bool loading;
    RoundButton({super.key,
-  
+  required this.loading,
   required this.title,
    required this.ontap,
   });
@@ -23,7 +24,9 @@ class RoundButton extends StatelessWidget {
      borderRadius: BorderRadius.circular(40)
      ),
      child: Center(
-       child: Text(title,
+       child: loading ? CircularProgressIndicator(
+        strokeWidth: 3,color: Colors.white,
+       ):   Text(title,
        style: TextStyle(color: Colors.white),
        ),
      )
