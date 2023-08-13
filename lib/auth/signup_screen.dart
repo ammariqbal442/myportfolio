@@ -69,111 +69,113 @@ Navigator.pushReplacement(
   automaticallyImplyLeading: true,
  ),
 
- body: Padding(
-   padding:  EdgeInsets.symmetric(horizontal:20),
+ body: 
 
-   child: Column(
+   Column(
     mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: <Widget>[
  
 
- Form(
-  key: _formkey,
-  child: Column(children: <Widget>[
-    TextFormField(
-          keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          hintText: 'Your Email',
-          helperText: 'email must be @gmail.com',
-          suffixIcon: Icon(Icons.email_sharp)
-
-        ),
-                validator: (value){
-
-          if (value!.isEmpty)
-          {
-
-            return 'Enter your email';
-          }
-          else {
-
-            return null;
-          }
-        },
-
-
-        controller: emailcontroller,
-      ),
-       TextFormField(
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
-        decoration: InputDecoration(
-          hintText: 'Your Password',
-          
-          helperText: 'Passord must be A-Z, 1-0,Characters with symbols',
-          suffixIcon: Icon(Icons.lock)
-
-        ),
-        validator: (value){
-
-          if (value!.isEmpty)
-          {
-
-            return 'Enter your Password';
-          }
-          else if (value.length < 6) {
-    return 'Password should be at least 6 characters';
-  } 
-          else {
-
-            return null;
-          }
-        },
-        controller: passowrdcontroller,
-      ),
-      SizedBox(height: 20,),
-RoundButton(title:'Login',
-loading: loading,
+ Padding(
+   padding:  EdgeInsets.symmetric(horizontal:20),
+   child: Form(
+    key: _formkey,
+    child: Column(children: <Widget>[
+      TextFormField(
+            keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            hintText: 'Your Email',
+            helperText: 'email must be @gmail.com',
+            suffixIcon: Icon(Icons.email_sharp)
  
- ontap: (){
-if (_formkey.currentState!.validate())
-
-{
-signup();
-}
-
+          ),
+                  validator: (value){
+ 
+            if (value!.isEmpty)
+            {
+ 
+              return 'Enter your email';
+            }
+            else {
+ 
+              return null;
+            }
+          },
+ 
+ 
+          controller: emailcontroller,
+        ),
+         TextFormField(
+          keyboardType: TextInputType.visiblePassword,
+          obscureText: true,
+          decoration: InputDecoration(
+            hintText: 'Your Password',
+            
+            helperText: 'Passord must be A-Z, 1-0,Characters with symbols',
+            suffixIcon: Icon(Icons.lock)
+ 
+          ),
+          validator: (value){
+ 
+            if (value!.isEmpty)
+            {
+ 
+              return 'Enter your Password';
+            }
+            else if (value.length < 6) {
+      return 'Password should be at least 6 characters';
+    } 
+            else {
+ 
+              return null;
+            }
+          },
+          controller: passowrdcontroller,
+        ),
+        SizedBox(height: 20,),
+ RoundButton(title:'Sign Up',
+ loading: loading,
+   
+   ontap: (){
+ if (_formkey.currentState!.validate())
+ 
+ {
+ signup();
  }
- ),
+ 
+   }
+   ),
+      
     
-  
-Row(
-  crossAxisAlignment: CrossAxisAlignment.center,
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: <Widget>[
-
-    Padding(
-      padding: const EdgeInsets.symmetric(vertical:20),
-      child: Text("You do not have account",
-      style: TextStyle(
-        fontSize:16,
-        fontWeight: FontWeight.w500,
-      ),),
-    ),
-    TextButton(onPressed: (){
-
-      Navigator.push(context, MaterialPageRoute(builder: (context) =>Loginscreen()));
-    }, child: Text("Login In",style: TextStyle(
-        fontSize:16,
-        fontWeight: FontWeight.w500,
-      ),))
-  ],
-)
- ],)),
+ Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+ 
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical:20),
+        child: Text("You do not have account",
+        style: TextStyle(
+          fontSize:16,
+          fontWeight: FontWeight.w500,
+        ),),
+      ),
+      TextButton(onPressed: (){
+ 
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>Loginscreen()));
+      }, child: Text("Login In",style: TextStyle(
+          fontSize:16,
+          fontWeight: FontWeight.w500,
+        ),))
+    ],
+ )
+   ],)),
+ ),
       
     ],
    ),
- ),
+ 
     );
   }
 }

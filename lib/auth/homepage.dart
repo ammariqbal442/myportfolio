@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
+import '../utils/utilities.dart';
+import 'login_screen.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -10,13 +12,26 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-        title: Text("Home"),
-      ),
+  title: Text("Home"),
+  actions: [
+    IconButton(
+      onPressed: () {
+        auth.signOut().then((value) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Loginscreen()));
+        }).catchError((error) {
+          Utils().toastmessage('An error occurred while logging out: $error'); // Display error message
+        });
+      },
+      icon: Icon(Icons.logout_sharp),
+    ),
+  ],
+),
+
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

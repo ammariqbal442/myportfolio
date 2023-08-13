@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_portfolio_app/auth/loginwithphone.dart';
 import 'package:my_portfolio_app/auth/signup_screen.dart';
 import 'package:my_portfolio_app/utils/utilities.dart';
 import 'package:my_portfolio_app/widgets/round_button.dart';
@@ -164,9 +165,37 @@ FirebaseAuth _auth = FirebaseAuth.instance;
            }, child: Text("Sign up",style: TextStyle(
             fontSize:16,
             fontWeight: FontWeight.w500,
-          ),))
+          ),)),
+          SizedBox(height: 30,),
+
          ],
-           )
+           ),
+
+           
+InkWell(
+  onTap: (){
+    
+          Navigator.push(context, MaterialPageRoute(builder: (context) =>LoginWithPhone()));
+      
+
+  },
+  child: Container(
+    
+    height: 60,
+    width: 250,
+    decoration: BoxDecoration(
+      color: Colors.green,
+      borderRadius: BorderRadius.circular(50),
+      
+    ),
+    child:
+     Center(child: Text("Sign-Up with Phone",
+     style: TextStyle(
+      fontSize: 16,
+      color: Colors.white
+     ),)),
+  ),
+)
         ],)),
       ),
         
